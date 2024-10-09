@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="j1.js"></script>
+	<script>
+	$(document).ready(
+		function(){
+					$("#txt1").change(
+							function(){
+										var xmlobj = new XMLHttpRequest();
+										xmlobj.open("POST","ajaxmobliedata.xml",true);
+										xmlobj.send();
+										xmlobj.onreadystatechange = function(){
+											
+											var s=document.getElementById("txt1").value;
+											console.log(s);
+											if(this.readyState == 4 && this.status ==200)
+												{
+													var xmldoc = this.responseText;
+													console.log(xmldoc);
+												var t=" ";
+												t+='<table style="border-style:solid">';
+												$(xmldoc).find("book").each(function()
+												{
+														var st=$(this).find('title').text();
+														var pr=$(this).find('price').text();
+														var desc=$(this).find('desc').text();
+														var dt=$(this).find('datapack').text();
+														if(st==s)
+														{
+														$("#div1").append("<thead style='border-style:solid'><th style='border-style:solid'>&nbsp;Plans&nbsp;&nbsp;&nbsp;</th><th style='border-style:solid'>&nbsp;Price&nbsp;&nbsp;&nbsp;</th><th style='border-style:solid'>&nbsp;DataPack&nbsp;&nbsp;&nbsp;</th><th style='border-style:solid'>&nbsp;Read more&nbsp;</th></thead>");
+														$("#div1").append("<tbody style='border-style:solid','margin-top:20px'><tr> ");
+														$("#div1").append("<tr><td style='border-style:solid'>"+st+"</td><td style='border-style:solid'><a href='payment.html'>"+pr+"</a></td><td style='border-style:solid'>"+dt+"</td><td style='border-style:solid'>"+desc+"</td></tr>");
+														$("#div1").append("</tr><br /></tbody>");
+													}
+												});
+												t+='</table>';
+												$("#d1").html(t);					
+										}
+									}
+							});
+
+						});
+	</script>
+	
+	</head>
+	<body>
+		<div class="input-left">
+			<input type="text" id="txt1" class="txtdata" placeholder="Sarech Plans"><br>
+			<div class="input-right">
+				<div id="div1" class="datafile"></div>
+			</div>
+		</div>
+		<div class="input-box">
+		<div class="wrapper">
+		<form>
+			<div class="input-box">
+				<input type="text" id="moblienumber" placeholder="moblie number"><br>
+			
+			</div>
+			<button type="Submit" class="btn" id="Sarech">Sarech</button>
+			<button type="reset" class="btn" id="back"><a href="homepage.html">Back</a></button>
+		</div>
+		</form>
+	</div>
+	
+	</body>
+</html>

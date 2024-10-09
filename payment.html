@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="payment.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="jquery.js"></script>
+    <title>Document</title>
+    <script>
+		$(document).ready(function()
+		{
+            $("#a1").click(function() {
+                $("#cp1").hide();
+                $("#np1").hide();
+            });
+            $("#cp1").click(function() {
+                $("#a1").hide();
+                $("#np1").hide();
+            });
+            $("#np1").click(function() {
+                $("#cp1").hide();
+                $("#a1").hide();
+            });
+		$("#a1").click(function()
+			{
+			$("#i1").show();
+			$("#txt1").show();
+            $("#div1").show();
+            $("#div6").show();
+            $("#number").hide();
+            $("#password").hide();
+            $("#name").hide();
+            $("#card").hide();
+            $("#acnumber").hide();
+            $("#ifcscode").hide();
+            $("#acname").hide();
+            $("#sel").hide();
+            $("#ac").hide();
+            $("#if").hide();
+            $("#acname1").hide();
+            $("#div2").hide();
+            $("#div4").hide();
+            $("#div5").hide();
+            $("#div3").hide();
+            $("#back").hide();
+			});
+        $("#cp1").click(function()
+			{
+			$("#number").show();
+			$("#password").show();
+            $("#name").show();
+            $("#card").show();
+            $("#i1").hide();
+            $("#div2").show();
+            $("#div5").show();
+            $("#txt1").hide();
+            $("#acnumber").hide();
+            $("#ifcscode").hide();
+            $("#acname").hide();
+            $("#sel").hide();
+            $("#ac").hide();
+            $("#if").hide();
+            $("#acname1").hide();
+            $("#div1").hide();
+            $("#div3").hide();
+            $("#div4").hide();
+            $("#div6").hide();
+            $("#back").hide();
+    });
+        $("#np1").click(function()
+			{
+			$("#acnumber").show();
+            $("#ifcscode").show();
+            $("#acname").show();
+			$("#sel").show();
+            $("#ac").show();
+            $("#div3").show();
+            $("#div4").show();
+            $("#if").show();
+            $("#acname1").show();
+            $("#i1").hide();
+            $("#txt1").hide();
+            $("#number").hide();
+            $("#password").hide();
+            $("#name").hide();
+            $("#card").hide();
+            $("#div1").hide();
+            $("#div2").hide();
+            $("#div6").hide();
+            $("#div5").hide();
+            $("#back").hide();
+			});
+        });
+    </script>
+</head>
+<body>
+    <style>
+		body{
+			background-image: url(../cinema/IMG-20240308-WA0016.jpg);
+		}
+		</style>
+    <div class="wrapper">
+        <h1><small>Transction Page</small></h1>
+        <div class="input-box">
+            <button id="a1" class="btn">G-Pay QR CODE</button><br>
+            <img src="qrcode_localhost.png" style='display: none;border-radius:30px; margin-top: 10px;' id="i1" width="350px" height="300px">
+            <a href="homepage.html" target="_self"><div style="display: none;" id="div6" class="btn btn-info">Submit</div></a>
+            <a href="payment.html"><div style="display: none;" id="div1" class="btn btn-warning">BACK</div></a> 
+        </div>
+        <div class="input-box">
+            <button id="cp1" class="btn">Card-Payment</button>
+            <select   id="card" style="display: none;">
+                <option value="DEBIT">DEBIT CARD</option>
+                <option value="CREDIT">CREDIT CARD</option>
+                <option value="MASTER">MASTER  CARD</option>
+                <option value="VISE">VISE CARD</option>
+            </select>
+            <input type="text"  id="number" style="display: none;" placeholder="Card NUMBER">
+            <input type="text"  id="password" style="display: none;" placeholder="EXPRIRATION DATE">
+            <input type="text"  id="name" style="display: none;" placeholder="CVC CODE"><br>
+            <a href="homepage.html" target="_self"><div style="display: none;" id="div5" class="btn btn-info">Submit</div></a>
+            <a href="payment.html"><div style="display: none;" id="div2" class="btn btn-warning">BACK</div></a>
+        </div>
+        <div class="input-box">
+            <button id="np1" class="btn">Net Banking-Payment</button><br>
+        <select  class="select" id="sel" style="display: none;">
+            <option value="SBI">SBI</option>
+            <option value="BOB">Bank of Brodar</option>
+            <option value="kotak">KOTAK BANK</option>
+            <option value="HDFC">HDFC</option>
+        </select>
+        <label id="ac" style="display: none;"><h4>ACCOUNT NUMBER:</h4></label>
+        <input type="text" id="acnumber" placeholder="ACCOUNT NUMBER" style="display: none;">
+        <label id="if" style="display: none;"><h4>IFCS NUMBER:</h4></label>
+        <input type="text" id="ifcscode" placeholder="IFCS CODE" style="display: none;">
+        <label id="acname1" style="display: none;"><h4>ACCOUNT HOLDER NAME:</h4></label>
+        <input type="text" id="acname" placeholder="ACCOUNT HOLDER NAME" style="display: none;">
+        <a href="homepage.html" target="_self"><div style="display: none;" id="div4" class="btn btn-info">Submit</div></a>
+        <a href="payment.html"><div style="display: none;" id="div3" class="btn btn-warning">BACK</div></a>
+    </div>
+    <div class="input-box">
+        <button type="reset" class="btn" id="back"><a href="homepage.html">Back</a></button>
+    </div>
+    </div>
+</body>
+</html>
